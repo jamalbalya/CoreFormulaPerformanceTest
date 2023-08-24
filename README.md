@@ -63,3 +63,7 @@ Output JSON Structure (Example):
 
 This code simulates the process of evaluating a website's performance, making HTTP requests, and calculating various performance metrics. It uses a structured JSON package as input and returns a JSON result after processing. 
 The provided example input JSON is used for simulation, and the output JSON contains the calculated performance metrics.
+
+
+for the Requirements, you need to run:
+pip install -r requirements.txt
