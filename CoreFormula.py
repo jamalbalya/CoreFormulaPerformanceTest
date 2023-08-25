@@ -4,6 +4,26 @@ import time
 from urllib.parse import urlparse
 
 import requests
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+
+@csrf_exempt
+def inspect_performance(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            inspector = PerformanceInspector()  # Assuming PerformanceInspector is defined in CoreFormula.py
+            inspection_result_json = inspector.start_inspection(json.dumps(data))
+
+            if inspection_result_json:
+                return JsonResponse(json.loads(inspection_result_json))
+            else:
+                return JsonResponse({'error': 'Invalid inspection details.'}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
+
+    return JsonResponse({'error': 'Invalid request method.'}, status=405)
 
 
 class PerformanceInspector:

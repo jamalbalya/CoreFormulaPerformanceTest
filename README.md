@@ -67,3 +67,32 @@ The provided example input JSON is used for simulation, and the output JSON cont
 
 for the Requirements, you need to run:
 pip install -r requirements.txt
+
+
+Implement Django:
+
+1. cd CoreFormulaPerformanceTest
+    python -m venv venv
+2. bash: source venv/bin/activate
+3. pip install django
+4. django-admin startproject CoreFormulaPerformanceTestProject .
+5. python manage.py startapp core_inspector
+6. move file urls.py into folder: core_inspector
+7. move move and replace views.py into folder: core_inspector
+8. python manage.py runserver
+9. you will see like this:
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+August 25, 2023 - 09:44:36
+Django version 4.2.4, using settings 'CoreFormulaPerformanceTestProject.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+it's mean the server already run and ready to throw response from outside into script and give back the response json after script already finished process 
+
+6. after you run the server, don't forget to run CoreFormula.py
